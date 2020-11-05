@@ -1,0 +1,13 @@
+{
+  "name": "magic-square",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gabriel Cuenca <gabriel@redradix.com> Sonia Ruiz <sonia@redradix.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watchAll --coverage"
+  },
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}
