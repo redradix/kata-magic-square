@@ -1,7 +1,7 @@
 const square = [
-  [3, 7, 2],
-  [4, 9, 6],
-  [1, 8, 5],
+  [2, 3, 4],
+  [5, 6, 7],
+  [8, 9, 10],
 ]
 
 const CROSS_COORDS = [
@@ -40,7 +40,7 @@ const getMagicSum = square => {
  * The median of all sorted values of the square
  */
 const getCenter = square => {
-  const arr = square.flat().sort()
+  const arr = square.flat().sort((a, b) => a - b)
   const mid = Math.ceil(arr.length / 2)
   return arr.length % 2 == 0 ? (arr[mid] + arr[mid - 1]) / 2 : arr[mid - 1]
 }
@@ -57,7 +57,6 @@ const checkMagic = (square, sum) => {
     const sum = square[i].reduce((a, b) => a + b, 0)
     if (sum !== sum) return false
   }
-
   // Check columns using transpose
   let copySquaure = [...square]
   copySquaure = copySquaure[0].map((_, i) => copySquaure.map(row => row[i]))
@@ -65,21 +64,18 @@ const checkMagic = (square, sum) => {
     const sum = copySquaure[i].reduce((a, b) => a + b, 0)
     if (sum !== sum) return false
   }
-
   // Check first diagonal
   let sumDiagonals = 0
   for (let i = 0; i < 3; i++) {
     sumDiagonals += square[i][i]
   }
   if (sumDiagonals !== sum) return false
-
   // Check second diagonal
   sumDiagonals = 0
   for (let i = 0; i < 3; i++) {
     sumDiagonals += square[i][square.length - 1 - i]
   }
   if (sumDiagonals !== sum) return false
-
   return true
 }
 
@@ -104,11 +100,7 @@ const fillMatrix = (matrix, coords, pairs) => {
 const main = square => {
   const magicSum = getMagicSum(square)
 
-  if (checkMagic(square, magicSum)) {
-    return square
-  }
-
-  const arr = square.flat().sort()
+  const arr = square.flat().sort((a, b) => a - b)
   const pairs = getPairs([...arr])
   const center = getCenter(square)
 
