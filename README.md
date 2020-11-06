@@ -25,3 +25,7 @@ You need to arrange them in a 3 x 3 matrix so that:
 ## Requirements
 
 - Your objective is to complete a function that receives an array with 9 consecutive numbers and returns an 3x3 two-dimensional array.
+
+## Example of magic square
+
+- ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Magicsquareexample.svg/1200px-Magicsquareexample.svg.png)
